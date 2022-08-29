@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redia app</title>
+</head>
+<body>
+    <h1 style="text-align:center;">
+        Click ...more link 
+    </h1>
+    <ul>
+        {% for post in posts %} 
+             <li>
+                <h2>{{post.title}}</h2>
+                <p>
+                    {{post.body|slice:"0:100"}}
+                    <a href="{% url 'redisapp:detail' post.id %}">...more</a>
+                </p>
+             </li>
+        {% endfor %}
+    </ul>
+    <style>
+        *{
+            font-family: Tahoma;
+        }
+        ul{
+            padding: 0px 5%;
+        }
+        ul li{
+            border:1px solid black;
+            list-style-type: none;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            padding: 0px 5%;
+        }
+    </style>
+</body>
+</html>
